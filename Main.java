@@ -1,27 +1,45 @@
-/*A base class Animal with a method eat() that prints a message.
-1.	Create a subclass Dog that inherits from Animal and includes an additional method bark() that prints a message.
-2.	In a Main class, create an object of the Dog class and call both the eat() method (inherited from Animal) and the bark() method (defined in Dog).
-ANSWER:*/
-class Animal
+/*QUESTION FOR MULTI LEVEL INHERITANCE  
+1. Device (Base class):
+Attribute: brand (e.g., Samsung, Apple)
+Does not have a constructor
+This attribute will be accessed and initialized by subclasses
+2. Phone (Inherits from Device):
+Adds: number (the phone number as a String)
+No constructor
+Inherits brand from Device
+3. SmartPhone (Inherits from Phone):
+Adds: operatingSystem (e.g., Android, iOS)
+Implements a method setDetails(String brand, String number, String operatingSystem) to assign all attributes
+Implements a method displayDetails() to print all details of the smartphone*/
+
+class Device
 {
-    String a;
-    public void eat()
-    {
-        System.out.println("eat the dog");
-    }
+    String Brand;
 }
-class Dog extends Animal
+class Phone extends Device
 {
-    String b;
-    public void bark()
+    String Phoneno;
+}
+class Smartphone extends Phone
+{
+    String Operatingsystem;
+    public void setdetails(String Brand, String Phoneno, String Operatingsystem)
     {
-        System.out.println("bark the dog");
+        this.Brand = Brand;
+        this.Phoneno = Phoneno;
+        this.Operatingsystem = Operatingsystem;
+    }
+    public void Displaydetails()
+    {
+        System.out.println("Brand: "+ Brand);
+        System.out.println("Phoneno: "+ Phoneno);
+        System.out.println("Operatingsystem: "+ Operatingsystem);
     }
 }
 class Main {
     public static void main(String[] args) {
-        Dog s1 = new Dog();
-        s1.eat();
-        s1.bark();
+        Smartphone s1 = new Smartphone();
+        s1.setdetails("samsung", "999", "android");
+        s1.Displaydetails();
     }
 }
